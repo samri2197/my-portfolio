@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samrawit Solomon Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Hi, I’m Samrawit Solomon</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="fade-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I'm Samrawit Solomon, a Computer Science student passionate about web development and creating interactive applications. I love building projects that help people and showcase my skills.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="fade-section">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML / CSS / JavaScript</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>React</li>
+        <li>Git / GitHub</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="fade-section">
+    <div class="container">
+      <h2>Projects</h2>
+
+      
+      <!-- Project 1 -->
+      <div class="project">
+        <img src="images/todo.png" alt="To-Do List App screenshot">
+        <h3>To-Do List App</h3>
+        <p>A web-based To-Do List application to manage daily tasks. Users can add, delete, and mark tasks as completed.</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+        <div class="project-links">
+          <a href="https://github.com/username/todo-app" target="_blank">View Code</a>
+          <a href="https://your-todo-demo-link.com" target="_blank">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <img src="images/samra-cafe.png" alt="Samra Cafe website screenshot">
+        <h3>Samra Cafe Website</h3>
+        <p>A modern and responsive website for Samra Cafe. Showcases menu, contact info, and online orders.</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+        <div class="project-links">
+          <a href="https://github.com/username/samra-cafe" target="_blank">View Code</a>
+          <a href="https://your-samra-cafe-link.com" target="_blank">Live Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+// Animate sections on scroll
+const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>
+
+<script>
+// Highlight navbar links
+const navLinks = document.querySelectorAll('header nav a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 70;
+    if(scrollY >= sectionTop){
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if(link.getAttribute('href') === '#' + current){
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+<script>
+// Back-to-top button
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 300){
+    backToTop.style.display = 'block';
+  } else {
+    backToTop.style.display = 'none';
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:samriyo2023@gmail.com">samriyo2023@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/samri2197" target="_blank">github.com/samri2197</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/Samrawit Solomon" target="_blank">linkedin.com/in/Samrawit Solomon</a></p>
+    </div>
+  </section>
+
+  <button id="backToTop">&#8679;</button>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".fade-section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+</script>
+
+</body>
+</html>
